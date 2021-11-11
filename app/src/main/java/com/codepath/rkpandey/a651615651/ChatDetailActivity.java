@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.codepath.rkpandey.a651615651.Adapters.ChatAdapter;
 import com.codepath.rkpandey.a651615651.Models.MessageModel;
@@ -41,16 +43,19 @@ public class ChatDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_chat_detail);
+
+        //the cursed line
+        setContentView(binding.getRoot());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //getSupportActionBar().hide();
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        final String sendId = auth.getUid();
-        String receiveId = getIntent().getStringExtra("userId");
+        final String senderId = auth.getUid();
+        String recieveId = getIntent().getStringExtra("userId");
         String userName = getIntent().getStringExtra("userName");
         String profilePic = getIntent().getStringExtra("profilePic");
 
@@ -65,14 +70,14 @@ public class ChatDetailActivity extends AppCompatActivity {
             }
         });
 
-//        binding.backArrow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
-////                startActivity(intent);
-//                Log.d("ChatDetailAct", "Clicking Arrow Button.");
-//            }
-//        });
+        binding.backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+                Log.d("ChatDetailAct", "Clicking Arrow Button.");
+            }
+        });
 
 
 
@@ -85,9 +90,11 @@ public class ChatDetailActivity extends AppCompatActivity {
         binding.chatRecyclarView.setLayoutManager(layoutManager);
 
 
-        final String senderRoom = sendId + receiveId;
-        final String receiverRoom = receiveId + sendId;
+        final String senderRoom = senderId + recieveId;
+        final String receiverRoom = recieveId + senderId;
 
+        // something wrong with this part.
+        //fix this
         database.getReference().child("chats")
                 .child(senderRoom)
                 .addValueEventListener(new ValueEventListener() {
@@ -97,7 +104,6 @@ public class ChatDetailActivity extends AppCompatActivity {
                         messageModels.clear();
                         for(DataSnapshot snapshot1 : snapshot.getChildren()) {
                             MessageModel model = snapshot1.getValue(MessageModel.class);
-
                             messageModels.add(model);
                         }
 
@@ -112,50 +118,17 @@ public class ChatDetailActivity extends AppCompatActivity {
                 });
 
 
-//        binding.send.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d("ChatDetailAct", "Clicking Arrow Button.");
-//
-////                String message = binding.etMessage.getText().toString();
-////               final MessageModel model = new MessageModel(sendId, message);
-////               model.setTimestamp(new Date().getTime());
-////               binding.etMessage.setText("");
-////
-////               database.getReference().child("chats")
-////                       .child(senderRoom)
-////                       .push()
-////                       .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-////                   @Override
-////                   public void onSuccess(Void unused) {
-////                       database.getReference().child("chats")
-////                               .child(receiverRoom)
-////                               .push()
-////                               .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-////                           @Override
-////                           public void onSuccess(Void unused) {
-////
-////                           }
-////                       });
-////                   }
-////               });
-//
-//
-//
-//
-//            }
-//        });
-
-        ImageView ivSend = (ImageView) findViewById(R.id.send);
-        ivSend.setOnClickListener(new View.OnClickListener() {
+        ImageView send = (ImageView) findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("ChatDetailAct", "message sent");
+                EditText etMessage = findViewById(R.id.etMessage);
+                Log.d("ChatDetailAct", "Clicking Arrow Button.");
 
-                String message = binding.etMessage.getText().toString();
-               final MessageModel model = new MessageModel(sendId, message);
+                String message = etMessage.getText().toString();
+               final MessageModel model = new MessageModel(senderId, message);
                model.setTimestamp(new Date().getTime());
-               binding.etMessage.setText("");
+               etMessage.setText("");
 
                database.getReference().child("chats")
                        .child(senderRoom)
@@ -167,16 +140,50 @@ public class ChatDetailActivity extends AppCompatActivity {
                                .child(receiverRoom)
                                .push()
                                .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                           @Override
+                          @Override
                            public void onSuccess(Void unused) {
 
                            }
                        });
-                   }
+                  }
                });
 
             }
         });
+
+//        ImageView ivSend = (ImageView) findViewById(R.id.send);
+//        ivSend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("ChatDetailAct", "message sent");
+//
+//                String message = binding.etMessage.getText().toString();
+//               final MessageModel model = new MessageModel(senderId, message);
+//               model.setTimestamp(new Date().getTime());
+//               binding.etMessage.setText("");
+//
+//               database.getReference().child("chats")
+//                       .child(senderRoom)
+//                       .push()
+//                       .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                   @Override
+//                   public void onSuccess(Void unused) {
+//                       database.getReference().child("chats")
+//                               .child(receiverRoom)
+//                               .push()
+//                               .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                           @Override
+//                           public void onSuccess(Void unused) {
+//
+//                           }
+//                       });
+//                   }
+//               });
+//
+//            }
+//        });
+
+
 
     }
 }
