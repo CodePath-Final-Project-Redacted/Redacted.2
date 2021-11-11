@@ -7,10 +7,22 @@
         <entry key="..\:/Users/Cheng/OneDrive/Desktop/College/Y3T1/Codepath Android/6+156+1/app/src/main/res/layout/activity_sign_in.xml" value="0.30625" />
         <entry key="..\:/Users/Cheng/OneDrive/Desktop/College/Y3T1/Codepath Android/6+156+1/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/Cheng/OneDrive/Desktop/College/Y3T1/Codepath Android/6+156+1/app/src/main/res/menu/menu.xml" value="0.2640625" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/drawable/bg_et_message.xml" value="0.37604166666666666" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/drawable/bg_reciever.xml" value="0.24375" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/drawable/bg_sender.xml" value="0.24375" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/drawable/round_shape.xml" value="0.37604166666666666" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/activity_chat_detail.xml" value="0.33" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/activity_main.xml" value="0.35989583333333336" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/fragment_calls.xml" value="0.35989583333333336" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/fragment_chats.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/sample_reciever.xml" value="0.33" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/sample_sender.xml" value="0.33" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/layout/sample_show_user.xml" value="0.35989583333333336" />
+        <entry key="..\:/Users/jessi/AndroidStudioProjects/Redacted.2/Redacted.2/app/src/main/res/menu/menu.xml" value="0.35989583333333336" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
