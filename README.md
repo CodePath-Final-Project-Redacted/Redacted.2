@@ -34,7 +34,8 @@ The look of it will look like WhatsApp where the message will stay.
 * [x] Sign in/sign up 
 * [x] Add contact 
 * [x] Message page 
-
+* [] Redacted feture
+ 
 **Optional Nice-to-have Stories**
 
 * Group Messaging 
