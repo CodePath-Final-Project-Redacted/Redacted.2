@@ -31,9 +31,9 @@ The look of it will look like WhatsApp where the message will stay.
 
 **Required Must-have Stories**
 
-* Sign in/sign up
-* Add contact
-* Message page
+* [x] Sign in/sign up 
+* [x] Add contact 
+* [x] Message page 
 
 **Optional Nice-to-have Stories**
 
