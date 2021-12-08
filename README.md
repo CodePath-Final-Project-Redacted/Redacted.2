@@ -34,7 +34,10 @@ The look of it will look like WhatsApp where the message will stay.
 * [x] Sign in/sign up 
 * [x] Add contact 
 * [x] Message page 
-* [ ] Redacted feture
+* [ ] Redacted feture* 
+
+
+*Due to time constraint and difficulity of this part we were unable to implement this part. However it will be part of our "future implementation" in our slide presentation.
  
 **Optional Nice-to-have Stories**
 
